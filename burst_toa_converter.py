@@ -37,8 +37,8 @@ def options():
                          help="The dispersion measure in units of pc cm^-3. Default: '332.7206'")
     general.add_argument('-ref_freq', type=np.float64, default=1400.0,
                          help="The reference frequency in units of MHz. Default: '1400'")
-    general.add_argument('-DM_constant', type=np.float64, default=4.1493775933,
-                         help="The dispersion constant in units of GHz^2 cm^3 pc^-1 ms. Default: '4.1493775933 (= 1.0 / 0.241 = same DM constant that is used with dspsr and SFXC, but see also https://arxiv.org/pdf/2007.02886.pdf)")
+    general.add_argument('-DM_constant', type=np.float64, default=1.0 / 0.241,
+                         help="The dispersion constant in units of GHz^2 cm^3 pc^-1 ms. Default: '1.0 / 0.241 (= 4.1493775933 = same DM constant that is used with dspsr and SFXC, but see also https://arxiv.org/pdf/2007.02886.pdf)")
     general.add_argument('-pandas-sig', type=int, default=16,
                          help="Number of significant digits to print of the pandas DataFrame. Default: '16'.")
     general.add_argument('-save', type=bool, default=False,
