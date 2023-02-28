@@ -24,7 +24,7 @@ def options():
     general.add_argument('-ra', type=str, default='19h34m55.680s',
                          help="The RA (right ascension) of the source. The format is 'xxhyymzz.zzs'. Default: '19h34m55.680s'")
     general.add_argument('-dec', type=str, default='+21d53m48.20s',
-                         help="The DEC (Declination) of the source. The format is '+-xxdyymzz.zzs'. Default: '+21d53m48.20s'")
+                         help="The DEC (Declination) of the source. The format is '+-xxdyymzz.zzs'. Default: '+21d53m48.20s'. If the declination is negative the correct syntax is '-dec=-xxdyymzz.zzs'.")
     general.add_argument('-station_name', type=str, default='Effelsberg',
                          help="Name of the staion (for printing purposes only). Default: 'Effelsberg'")
     general.add_argument('-X', type=np.float64, default=4033947.23550,
