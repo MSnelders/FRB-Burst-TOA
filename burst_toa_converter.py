@@ -45,6 +45,8 @@ def options():
                          help="Boolean flag. If true will save the pandas DataFrame as a .pkl file. Default: 'False'.")
     general.add_argument('-outname', type=str, default='burst_times.pkl',
                          help="Filename to use if the pandas DataFrame gets saved. Default: 'burst_times.pkl'.")
+    general.add_argument('-overwrite', type=bool, default=False,
+                         help="Will overwrite the already existing file to save the results.")
     return parser.parse_args()
 
 
@@ -129,8 +131,11 @@ def main(args):
     pd.set_option("display.max_rows", len(burst_tstamps))
 
     if args.save:
-        if os.path.exists(args.outname):
-            print(f"WARNING: Not saving the file. {args.outname} already exists.")
+        if os.path.exists(args.outname) and args.overwrite == False:
+            print(f"WARNING: Not saving the file. {args.outname} already exists and overwriting not allowed.")
+        elif os.path.exists(args.outname) and args.overwrite == True:
+            print(f"WARNING: This filename already exists and will be overwritten.")
+            df.to_pickle(args.outname)
         else:
             print(f"Saving DataFrame to {args.outname}")
             df.to_pickle(args.outname)
